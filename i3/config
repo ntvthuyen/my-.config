@@ -201,8 +201,8 @@ exec --no-startup-id nitrogen --restore
 exec --no-startup-id kitty fish -C "todo.sh list"
 #exec --no-startup-id xfce4-terminal --command=peaclock
 #exec --no-startup-id i3-msg "split v"
-#exec --no-startup-id kitty fish -C "fortune | cowsay -f small -e @@ -T U | lolcat --seed 0 --spread 1.0"
-exec --no-startup-id kitty fish -C "fortune | cowsay -f small -e @@ -T U"
+exec --no-startup-id kitty fish -C "fortune | cowsay -f small -e @@ -T U | lolcat --seed 0 --spread 1.0"
+#exec --no-startup-id kitty fish -C "fortune | cowsay -f small -e @@ -T U"
 exec --no-startup-id conky
 exec --no-startup-id tint2 -c ~/.config/tint2/neon/neon.tint2rc
 exec --no-startup-id anki
