@@ -195,6 +195,8 @@ mode "resize" {
 }
 #bindsym ctrl+$mod+l exec --no-startup-id sleep 1 && xset dpms force suspend
 
+for_window [class="Xmessage"] floating enable, move absolute position center
+
 bindsym $mod+r mode "resize"
 exec --no-startup-id compton -o 0
 exec --no-startup-id nitrogen --restore
@@ -204,7 +206,8 @@ exec --no-startup-id kitty fish -C "todo.sh list"
 exec --no-startup-id kitty fish -C "fortune | cowsay -f small -e @@ -T U | lolcat --seed 0 --spread 1.0"
 #exec --no-startup-id kitty fish -C "fortune | cowsay -f small -e @@ -T U"
 exec --no-startup-id conky
-exec --no-startup-id tint2 -c ~/.config/tint2/neon/neon.tint2rc
+#exec --no-startup-id tint2 -c ~/.config/tint2/neon/neon.tint2rc
+exec --no-startup-id tint2 -c ~/.config/tint2/carina/carina.tint2rc
 exec --no-startup-id anki
 exec --no-startup-id ibus-daemon -d
 #exec --no-startup-id i3-msg "split h"
