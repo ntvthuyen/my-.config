@@ -210,6 +210,7 @@ exec --no-startup-id conky
 exec --no-startup-id tint2 -c ~/.config/tint2/carina/carina.tint2rc
 exec --no-startup-id anki
 exec --no-startup-id ibus-daemon -d
+exec --no-startup-id thunderbird
 #exec --no-startup-id i3-msg "split h"
 #exec --no-startup-id xss-lock -- ~/.config/i3/lock.sh
 #exec --no-startup-id xautolock -time 4 -locker "i3lock-wrapper -l"
