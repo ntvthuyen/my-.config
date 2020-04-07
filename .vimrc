@@ -1,6 +1,5 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
+filetype off                  
+" required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -34,6 +33,7 @@ Plugin 'chrisbra/Colorizer'
 Plugin 'arcticicestudio/nord-vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'mhinz/vim-startify'
 " Plugin 'OmniSharp/omnisharp-vim'
 
 " plugin from http://vim-scripts.org/vim/scripts.html
@@ -63,15 +63,30 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+set t_Co=256
 :set t_ut=""
 set termguicolors
-syntax enable d
+syntax enable 
 :set nu
+":set tabstop=2
 " set background=dark
-colorscheme nord
+"clorscheme nord 
+colorscheme cake
+" ~/.vim/colors/
+
 set laststatus=2
 " let g:minimap_highlight='Visual'
-execute pathogen#infect()
 " let g:OmniSharp_server_use_mono = 1
-" set rtp+=~/.fzf
-call pathogen#helptags()
+" set rtp+=~/.fzf'
+let g:airline_theme='light'
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+":let g:airline_symbols.branch = ''
+"let g:airline_symbols.readonly = ''
+"let g:airline_symbols.linenr = '☰'
+"let g:airline_symbols.maxlinenr = ''
+"let g:airline_symbols.dirty='⚡'
+let g:airline#extensions#tabline#enabled = 1
+hi Normal guibg=NONE ctermbg=NONE
