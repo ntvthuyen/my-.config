@@ -6,13 +6,19 @@ call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
+
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim' 
 Plugin 'scrooloose/nerdtree'
-Plugin 'neoclide/coc.nvim' 
-Plugin 'kien/ctrlp.vim'
+"Plugin 'neoclide/coc.nvim' 
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'Lokaltog/vim-powerline' 
 Plugin 'severin-lemaignan/vim-minimap'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'HerringtonDarkholme/yats.vim' " TS Syntax
 " Plugin 'junegunn/fzf'
 " Plugin 'junegunn/fzf.vim'
 " The following are examples of different formats supported.
@@ -25,6 +31,8 @@ Plugin 'guns/xterm-color-table.vim'
 " Plugin 'vim-airline/vim-airline-themes'
 Plugin 'majutsushi/tagbar'
 Plugin 'dart-lang/dart-vim-plugin'
+Plugin 'natebosch/vim-lsc'
+Plugin 'natebosch/vim-lsc-dart'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'vhdirk/vim-cmake'
 Plugin 'prabirshrestha/async.vim'
@@ -72,8 +80,8 @@ syntax enable
 " set background=dark
 "clorscheme nord 
 colorscheme cake
+let g:lsc_auto_map = v:true
 " ~/.vim/colors/
-
 set laststatus=2
 " let g:minimap_highlight='Visual'
 " let g:OmniSharp_server_use_mono = 1
@@ -89,4 +97,40 @@ let g:airline_right_alt_sep = ''
 "let g:airline_symbols.maxlinenr = ''
 "let g:airline_symbols.dirty='⚡'
 let g:airline#extensions#tabline#enabled = 1
+
+inoremap jk <ESC>
+nmap <C-n> :NERDTreeToggle<CR>
+vmap ++ <plug>NERDCommenterToggle
+nmap ++ <plug>NERDCommenterToggle
+let g:NERDTreeGitStatusWithFlags = 1
+let g:NERDTreeIgnore = ['^node_modules$']
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+
+set relativenumber
+
+set smarttab
+set cindent
+set tabstop=2
+set shiftwidth=2
+" always uses spaces instead of tab characters
+set expandtab
+
+function! IsNERDTreeOpen()        
+  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+endfunction
+
+function! SyncTree()
+  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+    NERDTreeFind
+    wincmd p
+  endif
+endfunction
+
+" Highlight currently open buffer in NERDTree
+autocmd BufEnter * call SyncTree()
 hi Normal guibg=NONE ctermbg=NONE
