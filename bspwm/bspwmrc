@@ -3,7 +3,7 @@
 sxhkd &
 
 /home/lightkeima/.config/polybar/launch.sh &
-nitrogen --set-auto /home/lightkeima/Pictures/Wallpapers/76867698_p0.jpg &
+nitrogen --restore &
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 
