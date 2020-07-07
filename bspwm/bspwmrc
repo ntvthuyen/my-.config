@@ -1,7 +1,8 @@
 #! /bin/sh
 
 sxhkd &
-
+picom &
+export _JAVA_AWT_WM_NONREPARENTING=1 &
 /home/lightkeima/.config/polybar/launch.sh &
 nitrogen --restore &
 
