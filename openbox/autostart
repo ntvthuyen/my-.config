@@ -1,0 +1,4 @@
+export LC_ALL="en_US.UTF-8" &
+polybar -c ~/.config/polybar/config.ini main &
+nitrogen --restore &
+picom &
