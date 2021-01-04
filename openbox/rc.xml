@@ -42,7 +42,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Vent</name>
+    <name>Arrondie-Violet</name>
     <titleLayout>LSMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -67,7 +67,7 @@
     </font>
     <font place="InactiveWindow">
       <name>Yutapon coding Regular,</name>
-      <size>8</size>
+      <size>11</size>
       <!-- font size in points -->
       <weight>Bold</weight>
       <!-- 'bold' or 'normal' -->
